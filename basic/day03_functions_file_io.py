@@ -54,7 +54,7 @@ def read_student_scores():
     try:
         with open("./basic/day03_score.txt", "r", encoding="utf-8") as f:
             for line in f:
-                name, score = line.strip().split()
+                name, score = [x.strip() for x in line.strip().split(",")]
                 students.append({'name': name, 'score': float(score)})
             return students
     except FileNotFoundError:
